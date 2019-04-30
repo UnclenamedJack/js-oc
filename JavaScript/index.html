@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+</head>
+<body>
+<div style="margin-top: 20px">
+<h2>JS与OC交互</h2>
+<input type="button" value="唤起本地方法(call)" onclick="tianbai.call()">
+</div>
+<div>
+<input type="button" value="唤起getCall:(NSString *)callString传值" onclick="call()">
+    <button type="button" onclick="secondClick()">Click Me!</button>
+</div>
+<div id='zsz'></div>
+
+<script>
+    function rtnCamera(basedata) {
+        var zsz=document.getElementById('zsz');
+        zsz.innerHTML="<image style='width:200px;height:200px;' src='data:image/png;base64,"+basedata+"'>";
+    };
+    function showAlert(message){
+        alert(message);
+    }       
+    function secondClick() {
+        share('分享的标题','分享的内容','图片地址');
+    }
+var call = function()
+{
+    var callInfo = JSON.stringify({"jianshu": "http://www.jianshu.com/users/55c8fdc3c6e7/latest_articles"});
+        tianbai.getCall(callInfo);
+
+}
+
+var Callback = function(str)
+{
+<!--    alert(str);-->
+
+}
+var alerCallback = function(str)
+{
+    alert(str);
+}
+</script>
+</body>
+</html>
